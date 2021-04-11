@@ -12,8 +12,20 @@
 
 	<br>
 
-	<div class="container" id="name">
+	<div class="container">
 
+		<form method="get">
+			<label for="pos-filter">Filter by position</label>
+			<select id="pos-filter" name="pos-filter">
+				<option>None</option>
+				<option>PG</option>
+				<option>SG</option>
+				<option>C</option>
+				<option>PF</option>
+				<option>SF</option>
+			</select>
+			<input type="submit" name="btn-filter" value="Filter">
+		</form>
 
 		<table style="width: 100%;">
 			<tr>
@@ -22,13 +34,24 @@
 				<th>Main position</th>
 			</tr>
 
-			{% for item in playerdata %}
-			<tr>
-				<td>{{item.name}}</td>
-				<td>{{item.number}}</td>
-				<td>{{item.main_position}}</td>
-			</tr>
-			{% endfor %}
+			{% if posfilter == 'None' %}
+				{% for item in playerdata %}
+				<tr>
+					<td>{{item.name}}</td>
+					<td>{{item.number}}</td>
+					<td>{{item.main_position}}</td>
+				</tr>
+				{% endfor %}
+				
+			{%else%}
+				{% for item in q1 %}
+				<tr>
+					<td>{{item.name}}</td>
+					<td>{{item.number}}</td>
+					<td>{{item.main_position}}</td>
+				</tr>
+				{%endfor%}
+			{%endif%}
 		</table>
 
 	</div>
