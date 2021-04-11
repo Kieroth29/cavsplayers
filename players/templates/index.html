@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Player data</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/playercss.css'%}">
+</head>
+
+<body>
+
+	<br>
+
+	<div class="container" id="name">
+
+
+		<table style="width: 100%;">
+			<tr>
+				<th>Name</th>
+				<th>Jersey number</th>
+				<th>Main position</th>
+			</tr>
+
+			{% for item in playerdata %}
+			<tr>
+				<td>{{item.name}}</td>
+				<td>{{item.number}}</td>
+				<td>{{item.main_position}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+
+	</div>
+
+</body>
+
+</html>
